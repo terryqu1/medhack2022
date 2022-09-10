@@ -1,0 +1,55 @@
+<html> 
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<link rel="stylesheet" type="text/css" href="../static/index.css"> 
+
+    <script src="../static/script.js"></script>
+
+
+	</head>
+	
+	<body>
+
+        <form class="grid" action="/result" method="POST">
+
+          {% if name %}
+            <center>
+              <h3 style="color: blue;" class="let_space">Hello {{name}}, How was your day!!</h3>
+            </center> 
+
+          {% endif %}
+           
+          <label for="name">Enter the past medicine:</label>
+          <input type="text" list="medlist">
+          <datalist id="medlist">
+
+          </datalist>
+
+          <script>
+            var knownmedicine = [a,b,c,ab,de,ces];
+            var medlist = document.getElementById(medlist)
+
+            knownmedicine.forEach(function(item){
+              var option = document.createElement('option');
+            option.value = item;
+            medlist.appendChild(option);
+            });
+          </script>
+          <center><input class="file_submit" type="Submit"></center>
+
+        </form>
+
+        
+
+        
+
+        
+        <br>
+        <br>
+        <br>
+
+
+    </body>
+
+</html>
