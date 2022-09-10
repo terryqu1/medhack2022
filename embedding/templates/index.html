@@ -4,14 +4,13 @@
 		
 		<link rel="stylesheet" type="text/css" href="../static/index.css"> 
 
-    <script src="../static/script.js"></script>
 
 
 	</head>
 	
 	<body>
 
-        <form class="grid" action="/result" method="POST">
+    <form class="grid" action="/result" method="POST">
 
           {% if name %}
             <center>
@@ -26,19 +25,9 @@
 
           </datalist>
 
-          <script>
-            var knownmedicine = [a,b,c,ab,de,ces];
-            var medlist = document.getElementById(medlist)
+          <center><input class="medsubmit" type="Submit"></center>
 
-            knownmedicine.forEach(function(item){
-              var option = document.createElement('option');
-            option.value = item;
-            medlist.appendChild(option);
-            });
-          </script>
-          <center><input class="file_submit" type="Submit"></center>
-
-        </form>
+    </form>
 
         
 
@@ -49,7 +38,7 @@
         <br>
         <br>
 
-
-    </body>
+        <script type = "text/javascript" src="../static/script.js" defer></script>
+  </body>
 
 </html>
