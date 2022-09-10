@@ -18,7 +18,7 @@ function createnewmed(){
     var newmed = document.createElement('input')
     newmed.type = 'text'
     newmed.setAttribute('list','medlist')
-    allmed.insertBefore(newmed,medlist)
+    allmed.insertBefore(newmed,addbtn)
     var br = document.createElement('br')
-    allmed.insertBefore(br, medlist)
+    allmed.insertBefore(br, addbtn)
 }
