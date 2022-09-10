@@ -18,14 +18,20 @@
             </center> 
 
           {% endif %}
-           
-          <label for="name">Enter the past medicine:</label>
-          <input type="text" list="medlist">
-          <datalist id="medlist">
+          <div id="allmed">
+            <label for="name">Enter the past medicine:</label><br>
+            <input type="text" list="medlist"><br>
+            <input type="text" list="medlist"><br>
+            <datalist id="medlist">
 
-          </datalist>
+            </datalist>
+            <button type="button" id="add">Add More medicine</button>
+          </div>
 
-          <center><input class="medsubmit" type="Submit"></center>
+          <div id="targetmed">
+            
+          </div>
+          <center><input class="medsubmit" type="Submit" value="Check Compatibility"></center>
 
     </form>
 

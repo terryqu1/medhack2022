@@ -8,3 +8,17 @@ knownmedicine.forEach(function(item){
     option.value = item;
     medlist.appendChild(option);
 });
+
+const addbtn = document.getElementById('add')
+const allmed = document.getElementById('allmed')
+
+
+addbtn.addEventListener('click', createnewmed)
+function createnewmed(){
+    var newmed = document.createElement('input')
+    newmed.type = 'text'
+    newmed.setAttribute('list','medlist')
+    allmed.insertBefore(newmed,medlist)
+    var br = document.createElement('br')
+    allmed.insertBefore(br, medlist)
+}
