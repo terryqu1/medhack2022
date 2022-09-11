@@ -1,41 +1,85 @@
-html,body{
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-    box-sizing: border-box;
-    font-family: 'Rubik';
-    letter-spacing: 3px;
+.header{
+    background-color: rgba(64,0,120,0.3);
+    text-align: center;
+    padding: 10px;
 }
 
+html,body{
+    background-color: #141414;
+    background-image:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzEyMCc+Cgk8ZGVmcz4KCQk8cGF0dGVybiBwYXR0ZXJuVW5pdHM9J3VzZXJTcGFjZU9uVXNlJyBpZD0nYycgd2lkdGg9JzYwJyBoZWlnaHQ9JzEyMCcgeD0nMCcgeT0nMCcgdmlld0JveD0nMCAwIDUgMTAnPgoJCQk8cGF0aCBmaWxsLW9wYWNpdHk9JzAnIHN0cm9rZT0nIzI5MjkyOScgc3Ryb2tlLXdpZHRoPScwLjA5JyBkPSdNLTIsMUw3LDEwTS0yLDZMNywxNU0tMiwtNEw3LDUnLz4KCQk8L3BhdHRlcm4+CgkJPHBhdHRlcm4gcGF0dGVyblVuaXRzPSd1c2VyU3BhY2VPblVzZScgaWQ9J2MyJyB3aWR0aD0nNjAnIGhlaWdodD0nMTIwJyB4PScxMDAlJyB5PScwJyB2aWV3Qm94PScwIDAgNSAxMCc+CgkJCTxwYXRoIGZpbGwtb3BhY2l0eT0nMCcgc3Ryb2tlPScjMjkyOTI5JyBzdHJva2Utd2lkdGg9JzAuMDknIGQ9J003LDFMLTIsMTBNNyw2TC0yLDE1TTcsLTRMLTIsNScvPgoJCTwvcGF0dGVybj4KCTwvZGVmcz4KCTxyZWN0IHdpZHRoPSc1MCUnIGhlaWdodD0nMTAwJScgZmlsbD0ndXJsKCNjKScvPgoJPHJlY3QgeD0nNTAlJyB3aWR0aD0nNTAlJyBoZWlnaHQ9JzEwMCUnIGZpbGw9J3VybCgjYzIpJy8+Cjwvc3ZnPg==');
+
+    margin:0; padding:0;
+    overflow-x:hidden;
+    height:100%;
+    font-family: 'Lato', Helvetica, arial, sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.45;
+    color: #eee;
+    color: rgba(255,255,255,.85);
+}
+
+#container { 
+    padding-top: 50px;
+}
+#content {
+    max-width: 70em;
+    padding:10px;
+    margin: 0 auto;
+}
+
+p#pleft{
+    float:left;
+    max-width: 20em;
+}
+
+p#pright{
+    float:left;
+    max-width: 20em;
+}
+
+h1 {
+    font-size: 4.8em;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin: 0;
+}
+h3 {
+    font-size: 2.4em;
+    font-weight: 300;
+    line-height: 1.5;
+}
+.label {
+    font-size: 1.8em;
+    font-weight: 320;
+}
 
 /* element */
   
 .let_space{
-    letter-spacing: 2px;
-}
-
-
-.c_grid{
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    grid-gap: 2vmax;
+    letter-spacing: 1.5px;
 }
    
 .grid{
     display: grid;
     grid-gap: 2vmax;
-}
-   
-  
-   
-.box2{
     grid-template-columns: 1fr 1fr;
+    border: 3px solid rgba(28,110,164,0.34);
 }
-  
-.box3{
-    grid-template-columns: 1fr 1fr 1fr;
-} 
+
+.box{
+    border: 5px solid rgba(28,110,164,0.34);
+    width: 300px;
+    padding: 50px;
+    margin: 20px;
+}
+
+.font{
+    border: 3px solid rgba(28,110,164,0.34);
+    font-family: 'Lato', Helvetica, arial, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+}
 
 /* element */
 
@@ -51,7 +95,7 @@ table {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #36c6ff;
     text-align: center;
     padding: 1vmax;
     width: fit-content;
@@ -60,7 +104,7 @@ td, th {
 form{
     margin: 2vmax 10vmax;
     padding:3vmax;
-    border: 1px solid #dddddd;
+    border: 1px solid #959595;
 }
 
 label{
@@ -70,14 +114,14 @@ label{
 input{
     padding:1vmax;
     font-size: 1.3vmax;
-    border: 1px solid #dddddd;
+    border: 3px solid #858585;
     outline: none;
 }
 
 select{
     padding:1vmax;
     font-size: 1.3vmax;
-    border: 1px solid #dddddd;
+    border: 1px solid #ca1616;
     outline: none;
     letter-spacing: 3px;
 }
@@ -87,19 +131,24 @@ option{
     letter-spacing: 3px;
 }
 
-.file_submit{
-  margin-top: 1vmax;
-  border: 1px solid #55acee;
-  outline: none;
-  background-color: #55acee;
-  color: white;
-  padding: 1vmax;
-  cursor: pointer;
-  transition: 0.3s;
-  letter-spacing: 3px;
+.allmed{
+    float: left;
+    width: 50%;
+    padding: 15px;
+    font-family: 'Lato', Helvetica, arial, sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 
-.file_submit:hover{
-  background-color: white;
-  color: #55acee
+.footer{
+    background-color: rgba(64,0,120,0.3);
+    text-align: center;
+    padding: 10px;
 }

@@ -1,50 +1,53 @@
-<html> 
+<!DOCTYPE html>
+<html lang="en"> 
 	<head>
+    <title>ML-model for drug-drug interactions</title>
+    <meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
 		<link rel="stylesheet" type="text/css" href="../static/index.css"> 
-
-
-
 	</head>
 	
 	<body>
+    <div class="header">
+      <h1>Header</h1>
+    </div>
 
-    <form class="grid" action="/result" method="POST">
+    <div id="container">
+      <div id="content">
 
-          {% if name %}
-            <center>
-              <h3 style="color: blue;" class="let_space">Hello {{name}}, How was your day!!</h3>
-            </center> 
+        <h1>
+          <div style='float:left; margin-bottom: 20px;'>
+            Machine-Learning Based Drug-Drug Prediction Model
+          </div>
+        </h1>
 
-          {% endif %}
+        <h3>Enter past medication and target drug to assess:</h3>
+
+        <form class="grid" action="/result" method="POST">
           <div id="allmed">
-            <label for="name">Enter the past medicine:</label><br>
+            <label>Past Medication</label><br>
             <input type="text" list="medlist"><br>
             <input type="text" list="medlist"><br>
             <datalist id="medlist">
-
             </datalist>
-            <button type="button" id="add">Add More medicine</button>
+            <button type="button" id="add">Add more medicine</button>
           </div>
 
           <div id="targetmed">
-            
+            <label>Target Drug</label><br>
+            <input type="text" list="medlist"><br>
+            <input class="font" type="Submit" value="Check Compatibility">
           </div>
-          <center><input class="medsubmit" type="Submit" value="Check Compatibility"></center>
-
-    </form>
-
-        
-
-        
-
-        
-        <br>
-        <br>
-        <br>
+        </form>
 
         <script type = "text/javascript" src="../static/script.js" defer></script>
+
+        <div class="footer">
+          <h1>Footer</h1>
+        </div>
+
+      </div>
+    </div>
   </body>
 
 </html>
