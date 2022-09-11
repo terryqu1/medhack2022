@@ -58,6 +58,10 @@ input[list="medlist"] {
     margin: 5px;
 }
 
+li {
+    list-style-type: circle;
+}
+
 /* element */
   
 .label {

@@ -22,19 +22,25 @@ def result():
     if (len(medlist) != 0):
         processed = processmedlist(medlist)
         if (targ):
+            target = targ
             targincomplist = targincompat(processed, targ)
             if (len(targincomplist) != 0):
-                restarg = totext(targincomplist)
+                #restarg = totext(targincomplist)
+                restarg = translate(targincomplist) #testing
                 targsuc = 1
+        else:
+            target = 0
         if (len(medlist) > 1):
             medincomplist = medlistincompat(processed)    
             if (len(medincomplist) != 0):
-                resmed = totext(medincomplist)
+                resmed = translate(medincomplist) #testing
+                #resmed = totext(medincomplist)
                 medsuc = 1
     if (targsuc == 0): restarg = 0
     if (medsuc == 0): resmed = 0
+    print(resmed)
 
-    return render_template('index.html', restarg = restarg, resmed = resmed, submitted = 1)
+    return render_template('index.html', restarg = restarg, resmed = resmed, target = target, submitted = 1)
 
 def processmedlist(medlist):
     processed = []
@@ -65,6 +71,7 @@ def medlistincompat(medlist):
             medlistincomplist[index][0] = medlist[i]
             medlistincomplist[index][1] = medlist[j]
             index+=1
+    #print(len(medlistincomplist))
     return medlistincomplist
 
 def machinelearning(one, two):
@@ -95,6 +102,19 @@ def totext(incomplist):
             else:
                 break
     return restxt
+
+#testing function
+def translate(incomplist):
+    thedict = {
+        1 : 'minor',
+        2 : 'moderate',
+        3 : 'major'
+    }
+    for i in range(len(incomplist)):
+        token = incomplist[i][len(incomplist[0])-1]
+        incomplist[i].pop()
+        incomplist[i].append(thedict[token])
+    return incomplist
 
 
 if __name__ == "__main__":
