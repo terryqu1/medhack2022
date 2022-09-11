@@ -18,6 +18,7 @@ function createnewmed(){
     var newmed = document.createElement('input')
     newmed.type = 'text'
     newmed.setAttribute('list','medlist')
+    newmed.setAttribute('name','ip')
     allmed.insertBefore(newmed,addbtn)
     var br = document.createElement('br')
     allmed.insertBefore(br, addbtn)

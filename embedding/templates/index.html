@@ -12,23 +12,32 @@
 
     <form class="grid" action="/result" method="POST">
 
-          {% if name %}
-            <center>
-              <h3 style="color: blue;" class="let_space">Hello {{name}}, How was your day!!</h3>
-            </center> 
+          {% if restarg %}
+            {% for statement in restarg %}
+                <p style="color: red;">{{statement}}</p><br>
+            {% endfor %}
+          {% elif submitted %}
+                <p style="color: green">No target-history incompatibility predicted</p>
+          {% endif %}
 
+          {% if resmed %}
+            {% for statement in resmed %}
+              <p style="color: red;">{{statement}}</p><br>
+            {% endfor %}
+          {% elif submitted %}
+              <p style="color: green">No history-history incompatibility predicted</p>
           {% endif %}
           <div id="allmed">
             <label>Enter the past medicine:</label><br>
-            <input type="text" list="medlist"><br>
-            <input type="text" list="medlist"><br>
+            <input type="text" list="medlist" name="ip"><br>
+            <input type="text" list="medlist" name="ip"><br>
 
             <button type="button" id="add">Add More medicine</button>
           </div>
 
           <div id="targetmed"><br>
             <label>Enter the target medicine:</label><br>
-            <input type="text" list="medlist"><br>
+            <input type="text" list="medlist" name="tr"><br>
           </div>
           <datalist id="medlist"></datalist>
           <center><input class="medsubmit" type="Submit" value="Check Compatibility"></center>
