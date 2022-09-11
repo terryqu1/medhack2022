@@ -24,10 +24,25 @@
         <h3>Enter past medication and target drug to assess:</h3>
 
         <form class="grid" action="/result" method="POST">
+          {% if restarg %}
+            {% for statement in restarg %}
+                <p style="color: red;">{{statement}}</p>
+            {% endfor %}
+          {% elif submitted %}
+                <p style="color: green">No target-history incompatibility predicted</p>
+          {% endif %}
+
+          {% if resmed %}
+            {% for statement in resmed %}
+              <p style="color: red;">{{statement}}</p>
+            {% endfor %}
+          {% elif submitted %}
+              <p style="color: green">No history-history incompatibility predicted</p>
+          {% endif %}
           <div id="allmed">
             <label>Past Medication</label><br>
-            <input type="text" list="medlist"><br>
-            <input type="text" list="medlist"><br>
+            <input type="text" list="medlist" name = 'ip'><br>
+            <input type="text" list="medlist" name = 'ip'><br>
             <datalist id="medlist">
             </datalist>
             <button type="button" id="add">Add more medicine</button>
@@ -35,10 +50,12 @@
 
           <div id="targetmed">
             <label>Target Drug</label><br>
-            <input type="text" list="medlist"><br>
+            <input type="text" list="medlist" name="tr"><br>
             <input class="font" type="Submit" value="Check Compatibility">
           </div>
         </form>
+
+        
 
         <script type = "text/javascript" src="../static/script.js" defer></script>
 
