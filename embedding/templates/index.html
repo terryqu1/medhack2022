@@ -24,6 +24,7 @@
         <h3>Enter past medication and target drug to assess:</h3>
 
         <form class="grid" action="/result" method="POST">
+        <!--
           {% if restarg %}
             {% for statement in restarg %}
                 <p style="color: red;">{{statement}}</p>
@@ -39,6 +40,46 @@
           {% elif submitted %}
               <p style="color: green">No history-history incompatibility predicted</p>
           {% endif %}
+        -->
+          {% if resmed or restarg %}
+            {% if target %}
+              <label>{{target}} Compatibility Result</label>
+              {% if restarg %}
+              <label>Past-Target Interactions</label>
+                {% for case in restarg%}
+                  <ol>
+                    {% if case.1 == 'major'%}
+                    <li style="color: red;">{{target}}-{{case[0]}}</li>
+                    {% elif case.1 == 'moderate'%}
+                    <li style="color:#A36A00">{{target}}--{{case[0]}}</li>
+                    {% elif case.1 == 'minor'%}
+                    <li style="color:yellow">{{target}}--{{case[0]}}</li>
+                    {% endif%}
+                  </ol>
+                {% endfor %}
+              {% endif %}
+            {% else %}
+              <label>Past Compatibility Result</label>
+            {% endif%}
+            {% if resmed %}
+              <label>Past-Past Interactions</label>
+              {% for case in resmed %}
+              <ol>
+                {% if case.2 == 'major'%}
+                <li style="color: red;">{{case[0]}}--{{case[1]}}</li>
+                {% elif case.2 == 'moderate'%}
+                <li style="color:#A36A00">{{case[0]}}--{{case[1]}}</li>
+                {% elif case.2 == 'minor'%}
+                <li style="color:yellow">{{case[0]}}--{{case[1]}}</li>
+                {% endif%}
+              </ol>
+              {% endfor %}
+            {% endif %}
+          {% else %}
+          <label>No incompatibility predicted</label>
+          {% endif %}
+
+
           <div id="allmed">
             <label>Past Medication</label><br>
             <input type="text" list="medlist" name = 'ip'><br>
