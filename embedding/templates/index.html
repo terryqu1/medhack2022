@@ -9,7 +9,10 @@
 	
 	<body>
     <div class="header">
-      <h1>Header</h1>
+      <h1>
+        Header
+        <button type="button" class="aboutUsButton">ABOUT</button>
+      </h1>
     </div>
 
     <div id="container">
@@ -17,45 +20,53 @@
 
         <h1>
           <div style='float:left; margin-bottom: 20px;'>
-            Machine-Learning Based Drug-Drug Prediction Model
+            <center>Machine-Learning Based Drug-Drug Prediction Model</center>
           </div>
         </h1>
 
-        <h3>Enter past medication and target drug to assess:</h3>
+        <h3><center>Enter past medication and target drug to assess:</center></h3>
 
         <form class="grid" action="/result" method="POST">
-          {% if restarg %}
-            {% for statement in restarg %}
-                <p style="color: red;">{{statement}}</p>
-            {% endfor %}
-          {% elif submitted %}
-                <p style="color: green">No target-history incompatibility predicted</p>
-          {% endif %}
 
-          {% if resmed %}
-            {% for statement in resmed %}
-              <p style="color: red;">{{statement}}</p>
-            {% endfor %}
-          {% elif submitted %}
-              <p style="color: green">No history-history incompatibility predicted</p>
-          {% endif %}
-          <div id="allmed">
-            <label>Past Medication</label><br>
-            <input type="text" list="medlist" name = 'ip'><br>
-            <input type="text" list="medlist" name = 'ip'><br>
-            <datalist id="medlist">
-            </datalist>
-            <button type="button" id="add">Add more medicine</button>
+          <div class="w3-row-padding">
+            <div class="w3-col s6 w3-center" id="allmed">
+              <label>Past Medication</label><br>
+              <input type="text" list="medlist" name = 'ip' class = "inputBox"><br>
+              <input type="text" list="medlist" name = 'ip' class = "inputBox"><br>
+              <datalist id="medlist">
+              </datalist>
+              <button type="button" id="add" class="inputButton">Add more medicine</button>
+            </div>
+            <div class="w3-col s6 w3-center" id="targetmed">
+              <br><br><label>Target Drug</label><br>
+              <input type="text" list="medlist" name="tr" class = "inputBox"><br>
+              <input class="inputButton" type="Submit" value="Check Compatibility">
+            </div>
           </div>
-
-          <div id="targetmed">
-            <label>Target Drug</label><br>
-            <input type="text" list="medlist" name="tr"><br>
-            <input class="font" type="Submit" value="Check Compatibility">
+          <div class="w3-row-padding">
+            <div class="w3-col s6 w3-center">
+              <label>Compatibility</label><br>
+              {% if restarg %}
+                {% for statement in restarg %}
+                  <p style="color: red;">{{statement}}</p>
+                {% endfor %}
+              {% elif submitted %}
+                  <p style="color: green">No target-history incompatibility predicted</p>
+              {% endif %}
+  
+              {% if resmed %}
+                {% for statement in resmed %}
+                <p style="color: red;">{{statement}}</p>
+                {% endfor %}
+              {% elif submitted %}
+                <p style="color: green">No history-history incompatibility predicted</p>
+              {% endif %}
+            </div>
           </div>
         </form>
 
-        
+        <br>
+        <br>
 
         <script type = "text/javascript" src="../static/script.js" defer></script>
 
@@ -66,5 +77,4 @@
       </div>
     </div>
   </body>
-
 </html>

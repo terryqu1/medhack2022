@@ -13,7 +13,7 @@ html,body{
     height:100%;
     font-family: 'Lato', Helvetica, arial, sans-serif;
     font-weight: 300;
-    font-size: 18px;
+    font-size: 17px;
     line-height: 1.45;
     color: #eee;
     color: rgba(255,255,255,.85);
@@ -23,7 +23,7 @@ html,body{
     padding-top: 50px;
 }
 #content {
-    max-width: 70em;
+    max-width: 75em;
     padding:10px;
     margin: 0 auto;
 }
@@ -49,13 +49,44 @@ h3 {
     font-weight: 300;
     line-height: 1.5;
 }
+
+input[list="medlist"] {
+    border: 3px solid rgba(91,91,91,0.54);
+    font-family: 'Lato', Helvetica, arial, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+}
+
+/* element */
+  
 .label {
     font-size: 1.8em;
     font-weight: 320;
 }
 
-/* element */
-  
+.inputButton{
+    border: 3px solid rgba(91,91,91,0.54);
+    font-family: 'Lato', Helvetica, arial, sans-serif;
+    font-size: 16px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.button-container{
+    position:relative;
+    height:100%;
+   }
+
+.aboutUsButton {
+    float: right;
+        color: rgb(226, 226, 226); font-size: 30px; line-height: 30px; padding: 30px; border-radius: 0px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(23, 12, 25) 0%, rgb(26, 12, 27) 56%, rgb(32, 17, 32) 100%); box-shadow: rgba(0, 0, 0, 0) -100px -100px 0px 6px; border: 0px solid rgb(119, 12, 105);}
+        .aboutUsButton:hover {
+        background: #170C19; }
+        .aboutUsButton:active {
+        background: #201120;
+}
+
 .let_space{
     letter-spacing: 1.5px;
 }
@@ -72,13 +103,6 @@ h3 {
     width: 300px;
     padding: 50px;
     margin: 20px;
-}
-
-.font{
-    border: 3px solid rgba(28,110,164,0.34);
-    font-family: 'Lato', Helvetica, arial, sans-serif;
-    font-size: 16px;
-    padding: 5px;
 }
 
 /* element */
