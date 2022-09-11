@@ -86,7 +86,7 @@ li {
 
 .aboutUsButton {
     position: relative;
-    left:600px;
+    left:430px;
     color: rgb(226, 226, 226); font-size: 30px; line-height: 30px; padding: 30px; border-radius: 0px; font-family: Georgia, serif; font-weight: normal; text-decoration: none; font-style: normal; font-variant: normal; text-transform: none; background-image: linear-gradient(to right, rgb(23, 12, 25) 0%, rgb(26, 12, 27) 56%, rgb(32, 17, 32) 100%); box-shadow: rgba(0, 0, 0, 0) -100px -100px 0px 6px; border: 0px solid rgb(119, 12, 105);}
     .aboutUsButton:hover {
     background: #170C19; }
