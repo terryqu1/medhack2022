@@ -28,8 +28,8 @@ def result():
             target = targ
             targincomplist = targincompat(processed, targ)
             if (len(targincomplist) != 0):
-                #restarg = totext(targincomplist)
                 restarg = translate(targincomplist) #testing
+                #targtxt = totext(targincomplist)
                 targsuc = 1
         else:
             target = 0
@@ -37,11 +37,12 @@ def result():
             medincomplist = medlistincompat(processed)    
             if (len(medincomplist) != 0):
                 resmed = translate(medincomplist) #testing
-                #resmed = totext(medincomplist)
-                medsuc = 1
+                #medtxt = totext(medincomplist)
+                medsuc = 1   
     if (targsuc == 0): restarg = 0
+
     if (medsuc == 0): resmed = 0
-    print(resmed)
+
 
     return render_template('index.html', restarg = restarg, resmed = resmed, target = target, submitted = 1)
 
@@ -94,14 +95,14 @@ def totext(incomplist):
     if (len(incomplist[0]) == 2):
         for i in range(0, len(incomplist)):
             if (incomplist[i][1] != 0):
-                restxt.append('its incompatibility with ' + incomplist[i][0] + ' is ' + thedict[incomplist[i][1]] + '\n')
+                restxt.append('its incompatibility with ' + incomplist[i][0] + ' is ' + incomplist[i][1] + '\n')
             else:
                 break
     if (len(incomplist[0]) == 3):
         for i in range(0, len(incomplist)):
             print(len(incomplist))
             if (incomplist[i][2] != 0):
-                restxt.append('the incompatibility between ' + incomplist[i][0] + ' and ' + incomplist[i][1] + ' is ' + thedict[incomplist[i][2]] + '\n')
+                restxt.append('the incompatibility between ' + incomplist[i][0] + ' and ' + incomplist[i][1] + ' is ' + incomplist[i][2] + '\n')
             else:
                 break
     return restxt
