@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for, request
-import sys
+import random
 app = Flask(__name__)
 
  
@@ -21,7 +21,6 @@ def result():
     targ = request.form.get('tr')
     targsuc = 0
     medsuc = 0
-    print(medlist, targ, targincompat(medlist, targ), file=sys.stderr)
     if (len(medlist) != 0):
         processed = processmedlist(medlist)
         if (targ):
@@ -79,7 +78,9 @@ def medlistincompat(medlist):
     return medlistincomplist
 
 def machinelearning(one, two):
-    return 1
+    rd = random.choice([0,1,2,3])
+    return rd
+
 
 def orderlist(incomplist):
     return sorted(incomplist,key=lambda x: x[len(incomplist[0])-1])
@@ -88,6 +89,7 @@ def totext(incomplist):
     restxt = []
     orderlist(incomplist)
     thedict = {
+        0 : 'no',
         1 : 'minor',
         2 : 'moderate',
         3 : 'major'
@@ -110,6 +112,7 @@ def totext(incomplist):
 #testing function
 def translate(incomplist):
     thedict = {
+        0 : 'no',
         1 : 'minor',
         2 : 'moderate',
         3 : 'major'
