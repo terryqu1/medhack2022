@@ -23,13 +23,13 @@
           </div>
         </h1>
 
-        <h3><center>Enter past medication and target drug to assess:</center></h3>
+        <h3><center>Enter other medication and target drug to assess:</center></h3>
 
         <form class="grid" action="/result" method="POST">
 
           <div class="w3-row-padding">
             <div class="w3-col s6 w3-center" id="allmed">
-              <label>Past Medication</label><br>
+              <label>Other Medication</label><br>
               <input type="text" list="medlist" name = 'ip' class = "inputBox"><br>
               <input type="text" list="medlist" name = 'ip' class = "inputBox"><br>
               <datalist id="medlist">
@@ -51,8 +51,13 @@
               {% if resmed or restarg %}
               {% if target %}
                 <label>{{target}} Compatibility Result</label>
+                <ol>
+                  <li style="color: red">Major</li>
+                  <li style="color: orange">Moderate</li>
+                  <li style="color: yellow">Minor</li>
+                </ol>
                 {% if restarg %}
-                <label>Past-Target Interactions</label>
+                <label>Other-Target Interactions</label>
                   {% for case in restarg%}
                     <ol>
                       {% if case.1 == 'major'%}
@@ -65,11 +70,9 @@
                     </ol>
                   {% endfor %}
                 {% endif %}
-              {% else %}
-                <label>Past Compatibility Result</label>
               {% endif%}
               {% if resmed %}
-                <label>Past-Past Interactions</label>
+                <label>Other-Other Interactions</label>
                 {% for case in resmed %}
                 <ol>
                   {% if case.2 == 'major'%}
